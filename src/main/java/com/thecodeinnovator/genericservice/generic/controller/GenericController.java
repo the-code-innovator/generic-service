@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public abstract class GenericController<T extends GenericEntity<T>> {
-    private final GenericService<T> service;
+    private GenericService<T> service;
 
     public GenericController(GenericRepository<T> repository) {
         this.service = new GenericService<T>(repository) {};

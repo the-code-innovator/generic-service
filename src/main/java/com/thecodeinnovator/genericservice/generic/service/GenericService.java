@@ -17,10 +17,9 @@ public abstract class GenericService <T extends GenericEntity<T>> {
     public Page<T> getPage(Pageable pageable){
         return repository.findAll(pageable);
     }
-
-    @SuppressWarnings("unchecked")
+    
     public T get(Long id){
-        return (T) repository.findById(id);
+        return repository.findById(id).get();
     }
 
     @Transactional
